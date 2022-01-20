@@ -1,7 +1,11 @@
 import sendFiles
 import postgConnection
+import reciveFiles
 
-# send log files in .txt format by 514 port
-sendFiles.sendFiles()
+
+reciveFiles.reciveFile()
+
+
+
 
 

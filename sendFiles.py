@@ -1,20 +1,25 @@
 import os
 import socket
+
+
 def sendFiles():
-    filenames = ["linux.txt", "windows.txt"]
+    filename = "logs.txt"
     sk = socket.socket()
-    BufferSize = 2048
-    ip_port = ('127.0.0.1', 514)
+    BufferSize = 4096
+    ip_port = ('192.168.1.31', 514)
 
     sk.connect(ip_port)
-    for name in filenames:
-        sk.send(f"{name}".encode())
-        with open(f"{name}", "rb") as f:
-            while True:
-                bytesRead = f.read(BufferSize)
-                if not bytesRead:
-                    break
-                sk.sendall(bytesRead)
-                print(f"[INFO] Sent {name} on server")
+
+    sk.send(f"{filename}".encode())
+    with open(f"{filename}", "rb") as f:
+        while True:
+            bytesRead = f.read(BufferSize)
+            if not bytesRead:
+                break
+            sk.sendall(bytesRead)
+            print(f"[INFO] Sent {filename} on server")
 
     sk.close()
+
+
+sendFiles()
