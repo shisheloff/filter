@@ -1,3 +1,4 @@
+import os
 import socket
 def sendFiles():
     filenames = ["linux.txt", "windows.txt"]
@@ -7,6 +8,7 @@ def sendFiles():
 
     sk.connect(ip_port)
     for name in filenames:
+        sk.send(f"{name}".encode())
         with open(f"{name}", "rb") as f:
             while True:
                 bytesRead = f.read(BufferSize)
