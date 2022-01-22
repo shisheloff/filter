@@ -1,0 +1,55 @@
+Jan 22 23:22:21 shishelov-kkso-05-18 sudo: pam_unix(sudo:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:22:23 shishelov-kkso-05-18 sudo: pam_unix(sudo:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:22:26 shishelov-kkso-05-18 sudo: pam_unix(sudo:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:22:27 shishelov-kkso-05-18 sudo: pam_unix(sudo:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:22:27 shishelov-kkso-05-18 sudo: testuser : user NOT in sudoers ; TTY=pts/1 ; PWD=/home/testuser ; USER=root ; COMMAND=/bin/bash
+Jan 22 23:22:34 shishelov-kkso-05-18 sudo: pam_unix(sudo:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:22:35 shishelov-kkso-05-18 sudo: pam_unix(sudo:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:22:35 shishelov-kkso-05-18 sudo: testuser : user NOT in sudoers ; TTY=pts/1 ; PWD=/home/testuser ; USER=root ; COMMAND=/bin/bash
+Jan 22 23:22:44 shishelov-kkso-05-18 su: pam_unix(su-l:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:22:48 shishelov-kkso-05-18 su: pam_unix(su-l:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:22:48 shishelov-kkso-05-18 su: (to shishelov_kkso-05-18) testuser on pts/1
+Jan 22 23:22:48 shishelov-kkso-05-18 su: pam_unix(su-l:session): session opened for user shishelov_kkso-05-18 by (uid=1001)
+Jan 22 23:22:51 shishelov-kkso-05-18 sudo: pam_unix(sudo:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:22:54 shishelov-kkso-05-18 sudo: pam_unix(sudo:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:22:54 shishelov-kkso-05-18 sudo: shishelov_kkso-05-18 : TTY=pts/1 ; PWD=/home/shishelov_kkso-05-18 ; USER=root ; COMMAND=/bin/bash
+Jan 22 23:22:54 shishelov-kkso-05-18 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 22 23:27:53 shishelov-kkso-05-18 sudo: pam_unix(sudo:session): session closed for user root
+Jan 22 23:28:01 shishelov-kkso-05-18 su: pam_unix(su-l:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:28:02 shishelov-kkso-05-18 su: pam_unix(su-l:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:28:02 shishelov-kkso-05-18 su: (to testuser) testuser on pts/1
+Jan 22 23:28:02 shishelov-kkso-05-18 su: pam_unix(su-l:session): session opened for user testuser by (uid=1000)
+Jan 22 23:28:12 shishelov-kkso-05-18 sudo: pam_unix(sudo:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:28:14 shishelov-kkso-05-18 sudo: pam_unix(sudo:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:28:14 shishelov-kkso-05-18 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=1001 euid=0 tty=/dev/pts/1 ruser=testuser rhost=  user=testuser
+Jan 22 23:28:16 shishelov-kkso-05-18 sudo: pam_unix(sudo:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:28:18 shishelov-kkso-05-18 sudo: pam_unix(sudo:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:28:18 shishelov-kkso-05-18 sudo: testuser : user NOT in sudoers ; TTY=pts/1 ; PWD=/home/testuser ; USER=root ; COMMAND=/usr/bin/ls /root
+Jan 22 23:28:29 shishelov-kkso-05-18 su: pam_unix(su-l:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:28:32 shishelov-kkso-05-18 su: pam_unix(su-l:auth): Couldn't open /etc/securetty: Нет такого файла или каталога
+Jan 22 23:28:32 shishelov-kkso-05-18 su: (to shishelov_kkso-05-18) testuser on pts/1
+Jan 22 23:28:32 shishelov-kkso-05-18 su: pam_unix(su-l:session): session opened for user shishelov_kkso-05-18 by (uid=1001)
+Jan 22 23:28:35 shishelov-kkso-05-18 sudo: shishelov_kkso-05-18 : TTY=pts/1 ; PWD=/home/shishelov_kkso-05-18 ; USER=root ; COMMAND=/bin/bash
+Jan 22 23:28:35 shishelov-kkso-05-18 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jan 22 23:30:01 shishelov-kkso-05-18 CRON[4723]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 22 23:30:01 shishelov-kkso-05-18 CRON[4723]: pam_unix(cron:session): session closed for user root
+Jan 20 22:13:46 serg-VirtualBox systemd-logind[788]: Watching system buttons on /dev/input/event1 (Sleep Button)
+Jan 20 22:13:46 serg-VirtualBox systemd-logind[788]: Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard)
+Jan 20 22:14:44 serg-VirtualBox useradd[2273]: failed adding user 'vboxadd', data deleted
+Jan 20 22:14:44 serg-VirtualBox useradd[2274]: failed adding user 'vboxadd', data deleted
+Jan 20 22:14:48 serg-VirtualBox gdm-launch-environment]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Jan 20 22:14:49 serg-VirtualBox systemd-logind[788]: New session c1 of user gdm.
+Jan 20 22:14:49 serg-VirtualBox systemd: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Jan 20 22:15:22 serg-VirtualBox polkitd(authority=local): Registered Authentication Agent for unix-session:c1 (system bus name :1.37 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jan 20 22:15:42 serg-VirtualBox dbus-daemon[795]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+Jan 20 22:17:01 serg-VirtualBox CRON[3921]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 20 22:17:01 serg-VirtualBox CRON[3921]: pam_unix(cron:session): session closed for user root
+Jan 20 22:20:10 serg-VirtualBox gdm-password]: pam_unix(gdm-password:session): session opened for user serg by (uid=0)
+Jan 20 22:20:10 serg-VirtualBox systemd: pam_unix(systemd-user:session): session opened for user serg by (uid=0)
+Jan 20 22:20:10 serg-VirtualBox systemd-logind[788]: New session 3 of user serg.
+Jan 20 22:20:14 serg-VirtualBox polkitd(authority=local): Registered Authentication Agent for unix-session:3 (system bus name :1.101 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jan 20 22:20:38 serg-VirtualBox dbus-daemon[795]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+Jan 20 22:21:22 serg-VirtualBox pkexec: pam_unix(polkit-1:session): session opened for user root by (uid=1000)
+Jan 20 22:21:22 serg-VirtualBox pkexec[11633]: serg: Executing command [USER=root] [TTY=unknown] [CWD=/home/serg] [COMMAND=/usr/lib/update-notifier/package-system-locked]
+Jan 20 22:22:00 serg-VirtualBox sudo:     serg : TTY=pts/0 ; PWD=/home/serg ; USER=root ; COMMAND=/usr/bin/tail -n 20 /var/log/auth.log
+Jan 20 22:22:00 serg-VirtualBox sudo: pam_unix(sudo:session): session opened for user root by (uid=0)

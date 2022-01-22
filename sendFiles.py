@@ -3,7 +3,7 @@ import socket
 
 
 def sendFiles():
-    filename = "logs.txt"
+    filename = os.path.abspath("auth_logs.txt")
     sk = socket.socket()
     BufferSize = 4096
     ip_port = ('192.168.1.31', 514)

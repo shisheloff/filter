@@ -35,7 +35,7 @@ corel - Наименование трегера правила (or none)
 --corel.cfg
 
 Используемые порты:
-input 514 - syslog.py - out 9200
-input 3515 - winlog.py - out 9200
+input 514 - syslog.py - out 5432
+input 3515 - winlog.py - out 5432 под вопросом, возможно только сислог
 input 9200 - elasticsearch
 use 9200 - corel.py

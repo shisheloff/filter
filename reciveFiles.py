@@ -1,9 +1,11 @@
 import os
 import socket
-
+import bin.syslog
+print(os.path.abspath("auth_logs.txt"))
 ip_host = "0.0.0.0"
 server_port = 514
 BufferSize = 4096
+recived_filename = ""
 
 def reciveFile():
     sc = socket.socket()
@@ -32,5 +34,10 @@ def reciveFile():
     client_socket.close()
     sc.close()
 
+    with open(recived_filename, "r") as f:
+        data = f.readlines()
+        for lines in data:
+            print(bin.syslog.parser(lines))
 
 reciveFile()
+
