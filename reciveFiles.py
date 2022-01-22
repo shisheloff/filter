@@ -4,8 +4,8 @@ import bin.syslog
 print(os.path.abspath("auth_logs.txt"))
 ip_host = "0.0.0.0"
 server_port = 514
-BufferSize = 4096
-recived_filename = ""
+# BufferSize = 10000
+recivedFilename = "logs/syslog.txt"
 
 def reciveFile():
     sc = socket.socket()
@@ -20,13 +20,13 @@ def reciveFile():
 
     print(f"[+] {address} is connected.")
 
-    recivedFilename = client_socket.recv(BufferSize).decode()
+    # recivedFilename = client_socket.recv(BufferSize).decode()
 
-    recivedFilename = os.path.basename(recivedFilename)
+    # recivedFilename = os.path.basename(recivedFilename)
     with open(recivedFilename, 'wb') as f:
         print(f"[INFO] reciving file: {recivedFilename} ")
         while True:
-            bytesRead = client_socket.recv(BufferSize)
+            bytesRead = client_socket.recv(4096)
             if not bytesRead:
                 break
             f.write(bytesRead)
@@ -34,10 +34,11 @@ def reciveFile():
     client_socket.close()
     sc.close()
 
-    with open(recived_filename, "r") as f:
+    with open(recivedFilename, "r") as f:
         data = f.readlines()
         for lines in data:
             print(bin.syslog.parser(lines))
+
 
 reciveFile()
 

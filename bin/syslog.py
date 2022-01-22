@@ -23,6 +23,7 @@ def parser(line):
         message=message
     )
 
+
 '''
 with open("", "r") as f:
     data = f.readlines()
