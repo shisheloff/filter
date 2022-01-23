@@ -4,7 +4,7 @@ import bin.syslog
 from config.config import host, user, password, db_name
 ip_host = "0.0.0.0"
 server_port = 514
-recivedFilename = "logs/syslog.txt"
+recivedFilename = "/Users/21shish/PycharmProjects/lsfilter/logs/got_syslog.txt"
 
 def reciveFile():
     sc = socket.socket()
@@ -54,6 +54,7 @@ def insertData(recivedFilename):
                     records = ", ".join(["%s"] * len(data.values()))
                     cursor.execute(f"INSERT INTO datastore (month, day, time, domain, sender,"
                                    f"message) VALUES ({records})", list(data.values()))
+                cursor.execute("ALTER TABLE datastore ADD incidents TEXT")
 
         except Exception as _ex:
             print("[Err]: Error --->", _ex)
@@ -63,5 +64,5 @@ def insertData(recivedFilename):
                 print("[INFO] postgresql connection closed")
 
 
-reciveFile()
-insertData(recivedFilename)
+# reciveFile()
+# insertData(recivedFilename)

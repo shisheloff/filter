@@ -1,9 +1,8 @@
-import os
 import socket
 
 
 def sendFiles():
-    filename = "auth_logs.txt"
+    filename = "/Users/21shish/PycharmProjects/lsfilter/auth_logs.txt"
     sk = socket.socket()
 
     ip_port = ('192.168.1.31', 514)
