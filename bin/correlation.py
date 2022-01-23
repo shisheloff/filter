@@ -8,16 +8,17 @@ def check_incident():
         with connection.cursor() as cursor:
             connection.autocommit = True
             cursor.execute("select * from public.datastore where message like '%authentication failure%'")
-            first_rule = cursor.fetchall()
-            if first_rule:
+            potentially_incidents_for_first_rule = cursor.fetchall()
+            if potentially_incidents_for_first_rule:
                 cursor.execute("update public.datastore set incidents='yes' where message like '%authentication failure%'")
                 print("[SUCCESS]: Incident: potentially brute force attack!")
-
+                print("incidents:\n" + '\n'.join(map(str, potentially_incidents_for_first_rule)))
             cursor.execute("select * from public.datastore where message like '%user NOT in sudoers%'")
-            second_rule = cursor.fetchall()
-            if second_rule:
+            potentially_incidents_for_second_rule = cursor.fetchall()
+            if potentially_incidents_for_second_rule:
                 cursor.execute("update public.datastore set incidents = 'yes' where message like '%user NOT in sudoers%'")
                 print("[SUCCESS]: Incident: privilege escalation!")
+                print("incidents:\n" + '\n'.join(map(str, potentially_incidents_for_second_rule)))
 
     except Exception as _ex:
         print("[ERROR]: ", _ex)
