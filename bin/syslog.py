@@ -8,25 +8,10 @@ def parser(line):
     message = ' '.join(msg)
 
     return dict(
-
-        datatime=time_parser(
-            "{day};{month};13;{time}".format(
-                month=month,
-                day=day,
-                time=time,
-            ),
-            '%d;%b;%y;%H:%M:%S'  # 'day;month;year;hour:minute:second'
-        ),
-
+        month=month,
+        day=day,
+        time=time,
         domain=domain,
         sender=sender,
         message=message
     )
-
-
-'''
-with open("", "r") as f:
-    data = f.readlines()
-    for lines in data:
-        print(parser(lines))
-'''
