@@ -29,21 +29,25 @@ try:
         connection.autocommit = True
         with connection.cursor() as cursor:
             cursor.execute("CREATE TABLE IF NOT EXISTS datastore ("
-                           "Month  text,"
-                           "Day int,"
-                           "Time text,"
-                           "Domain text,"
-                           "Sender text,"
-                           "Message text"
+                           "id SERIAL PRIMARY KEY,"
+                           "Month TEXT,"
+                           "Day VARCHAR(10),"
+                           "Time time,"
+                           "Domain TEXT,"
+                           "Sender TEXT,"
+                           "Message TEXT,"
+                           "Incident TEXT"
                            ");")
-            # connection.commit()
             print("[INFO] Table created!")
             while True:
                 line = file.readline()
                 data = bin.syslog.parser(line)
-                for key, value in data.items():
-                    print("INSERT INTO datastore (%s) VALUES (%s)" % key % value)
-                    cursor.execute("INSERT INTO datastore ({0}) VALUES ({1})".format(key, str(value)))
+                # data = data.items()
+                tup = [(k, v) for k, v in data.items()]
+                print(tup)
+                records = ", ".join(["%s"] * len(data))
+                cursor.execute(f"INSERT INTO datastore (month, day, time, domain, sender,"
+                               f"message) VALUES ({records})", tup)
             connection.commit()
             connection.close()
 except Exception as _ex:
