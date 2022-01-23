@@ -1,4 +1,3 @@
-from time import strptime as time_parser
 import os
 
 
