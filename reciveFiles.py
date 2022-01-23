@@ -60,6 +60,7 @@ def insertData(recivedFilename):
         finally:
             if connection:
                 connection.close()
+                print("[INFO] postgresql connection closed")
 
 
 reciveFile()
