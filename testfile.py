@@ -23,6 +23,7 @@ def psqlConnect():
             print("[INFO] postgresql connection closed")
 
 
+'''
 try:
     with open("auth_logs.txt", "r") as file:
         connection = psycopg2.connect(host=host, user=user, password=password, database=db_name)
@@ -53,19 +54,19 @@ finally:
     if connection:
         connection.close()
         print("[INFO] postgresql connection closed")
-
 '''
-with open("auth_logs.txt", "r") as f:
-    line = f.readline()
-    # print(line)
-    data = bin.syslog.parser(line)
-    print(data.values())
-                    for i in values:
-                    cursor.execute("INSERT INTO public.datastore (Month, Day, Time, Domain, Sender, Message) "
-                                   "VALUES ({})".format(i))
-                    tup = [(k, v) for k, v in data.items()]
-                print(tup)
-                records = ", ".join(["%s"] * len(tup))
-                cursor.execute(f"INSERT INTO datastore (month, day, time, domain, sender,"
-                               f"message) VALUES ({records})", tup)
-'''
+try:
+    connection = psycopg2.connect(host=host, user=user, password=password, database=db_name)
+    with connection.cursor() as cursor:
+        cursor.execute("select * from public.datastore where message like '%user NOT in sudoers%'")
+        first_rule = cursor.fetchall()
+        if first_rule:
+            print(len(first_rule))
+            print(first_rule)
+            print("incidents:\n" + '\n'.join(map(str, first_rule)))
+except Exception as _ex:
+    print("[ERROR]: ", _ex)
+finally:
+    if connection:
+        connection.close()
+        print("[INFO]: postgresql connection closed")
