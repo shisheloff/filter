@@ -29,25 +29,22 @@ try:
         connection.autocommit = True
         with connection.cursor() as cursor:
             cursor.execute("CREATE TABLE IF NOT EXISTS datastore ("
-                           "id SERIAL PRIMARY KEY,"
                            "Month TEXT,"
-                           "Day VARCHAR(10),"
-                           "Time time,"
+                           "Day TEXT,"
+                           "Time TEXT,"
                            "Domain TEXT,"
                            "Sender TEXT,"
-                           "Message TEXT,"
-                           "Incident TEXT"
+                           "Message TEXT"
                            ");")
             print("[INFO] Table created!")
             while True:
                 line = file.readline()
+                if not line:
+                    break
                 data = bin.syslog.parser(line)
-                # data = data.items()
-                tup = [(k, v) for k, v in data.items()]
-                print(tup)
-                records = ", ".join(["%s"] * len(data))
+                records = ", ".join(["%s"] * len(data.values()))
                 cursor.execute(f"INSERT INTO datastore (month, day, time, domain, sender,"
-                               f"message) VALUES ({records})", tup)
+                               f"message) VALUES ({records})", list(data.values()))
             connection.commit()
             connection.close()
 except Exception as _ex:
@@ -66,4 +63,9 @@ with open("auth_logs.txt", "r") as f:
                     for i in values:
                     cursor.execute("INSERT INTO public.datastore (Month, Day, Time, Domain, Sender, Message) "
                                    "VALUES ({})".format(i))
+                    tup = [(k, v) for k, v in data.items()]
+                print(tup)
+                records = ", ".join(["%s"] * len(tup))
+                cursor.execute(f"INSERT INTO datastore (month, day, time, domain, sender,"
+                               f"message) VALUES ({records})", tup)
 '''
