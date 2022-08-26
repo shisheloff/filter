@@ -3,6 +3,7 @@ from config.config import host, user, password, db_name
 
 
 def check_incident():
+
     try:
         connection = psycopg2.connect(host=host, user=user, password=password, database=db_name)
         with connection.cursor() as cursor:

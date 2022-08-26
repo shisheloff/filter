@@ -1,6 +1,5 @@
 import psycopg2
 from config.config import host, user, password, db_name
-import bin.syslog
 
 
 def psqlConnect():

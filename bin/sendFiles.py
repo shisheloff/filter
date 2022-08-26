@@ -5,7 +5,7 @@ def sendFiles():
     filename = "/Users/21shish/PycharmProjects/lsfilter/auth_logs.txt"
     sk = socket.socket()
 
-    ip_port = ('192.168.1.31', 514)
+    ip_port = ('localhost', 514)
 
     sk.connect(ip_port)
 

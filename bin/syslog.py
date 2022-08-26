@@ -1,6 +1,3 @@
-import os
-
-
 def parser(line):
     month, day, time, domain, sndr, *msg = line.split()
     sender, *number = sndr.rstrip(':').rstrip(']').split('[')  # ``sender[number]'' OR ``sender''

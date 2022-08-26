@@ -1,6 +1,6 @@
 import socket
 import psycopg2
-import bin.syslog
+from bin import syslog
 from config.config import host, user, password, db_name
 ip_host = "0.0.0.0"
 server_port = 514
@@ -50,7 +50,7 @@ def insertData(recivedFilename):
                     line = file.readline()
                     if not line:
                         break
-                    data = bin.syslog.parser(line)
+                    data = syslog.parser(line)
                     records = ", ".join(["%s"] * len(data.values()))
                     cursor.execute(f"INSERT INTO datastore (month, day, time, domain, sender,"
                                    f"message) VALUES ({records})", list(data.values()))
